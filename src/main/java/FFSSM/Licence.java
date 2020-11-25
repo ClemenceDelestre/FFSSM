@@ -44,9 +44,14 @@ public class Licence {
      * @param d la date à tester
      * @return vrai si valide à la date d
      **/
-    public boolean estValide(LocalDate d) {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+    public boolean estValide(LocalDate d) { 
+        LocalDate finlicence = delivrance.plusYears(1);
+        if (d.isAfter(delivrance) && d.isBefore(finlicence)) { 
+            return (true) ;
+        }
+        else {
+                return (false) ;
+                    }
     }
 
 }
