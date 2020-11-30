@@ -74,6 +74,11 @@ public class FFSSMTest {
         assertTrue(Emb.estTerminee(),"L'embauche doit être terminé");
     }
         
-    
+    @Test
+    public void TestTerminerEmbauche() {
+        Mo.nouvelleEmbauche(Cl, LocalDate.of(2020, 9, 25));
+        Mo.terminerEmbauche(LocalDate.of(2020, 12, 25));
+        assertTrue(Mo.mesEmplois.get(this.Mo.mesEmplois.size()-1).estTerminee(), "L'emploi devrait être fini");
+        }
     
 }
