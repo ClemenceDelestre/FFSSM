@@ -19,7 +19,7 @@ public class Plongee {
 
 	public int duree;
         
-        private Set<Plongeur> participantsPlongee = new HashSet <> () ; 
+        private final Set<Plongeur> participantsPlongee = new HashSet <> () ; 
 
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;
@@ -50,6 +50,7 @@ public class Plongee {
                     return false ; 
                 }
             }
+            return true ; 
 	}
 
 }

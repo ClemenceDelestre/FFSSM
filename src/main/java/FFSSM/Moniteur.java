@@ -6,14 +6,17 @@ package FFSSM;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
+import java.util.ArrayList ; 
 
 public class Moniteur extends Plongeur {
 
     public int numeroDiplome;
+    public List<Embauche> mesEmplois = new ArrayList() ; 
 
     public Moniteur(String numeroINSEE, String nom, String prenom, String adresse, String telephone, LocalDate naissance, int numeroDiplome) {
         super(numeroINSEE, nom, prenom, adresse, telephone, naissance);
         this.numeroDiplome = numeroDiplome;
+        this.mesEmplois = new ArrayList() ; 
     }
 
     /**
@@ -31,14 +34,13 @@ public class Moniteur extends Plongeur {
      * @param employeur le club employeur
      * @param debutNouvelle la date de début de l'embauche
      */
-    public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {   
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");	    
+    public void nouvelleEmbauche(Club employeur, LocalDate debutNouvelle) {
+        Embauche newEmbauche = new Embauche(debutNouvelle, this, employeur) ; 
+        mesEmplois.add(newEmbauche);
     }
 
-    public List<Embauche> emplois() {
-         // TODO: Implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+    public List<Embauche> emplois() { 
+        return mesEmplois ; 
     }
 
 }
