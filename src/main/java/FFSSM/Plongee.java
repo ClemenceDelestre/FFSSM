@@ -19,7 +19,7 @@ public class Plongee {
 
 	public int duree;
         
-        private final Set<Plongeur> participantsPlongee = new HashSet <> () ; 
+        private final Set<Licence> licencePlongee = new HashSet <> () ; 
 
 	public Plongee(Site lieu, Moniteur chefDePalanquee, LocalDate date, int profondeur, int duree) {
 		this.lieu = lieu;
@@ -29,8 +29,8 @@ public class Plongee {
 		this.duree = duree;
 	}
 
-	public void ajouteParticipant(Plongeur participant) {
-            participantsPlongee.add(participant) ; 
+	public void ajouteParticipant(Licence l) {
+            licencePlongee.add(l) ; 
 
 	}
 
@@ -45,8 +45,8 @@ public class Plongee {
 	 * @return vrai si la plongée est conforme
 	 */
 	public boolean estConforme() {
-            for (Plongeur p : participantsPlongee ) {
-                if (!p.licence.estValide(date)) {
+            for (Licence l : licencePlongee ) {
+                if (!l.estValide(date)) {
                     return false ; 
                 }
             }
